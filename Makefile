@@ -23,7 +23,7 @@ build:
 		--build-arg VCS_REF=$(VCS_REF) \
 		--build-arg VERSION=$(VERSION) \
 		--tag $(REPO_NAMESPACE)/$(IMAGE_NAME):latest \
-		--tag $(REPO_NAMESPACE)/$(IMAGE_NAME):VCS-REF-$(VCS_REF) \
+		--tag $(REPO_NAMESPACE)/$(IMAGE_NAME):$(VCS_REF) \
 		--tag $(REPO_NAMESPACE)/$(IMAGE_NAME):$(VERSION) \
 		--file Dockerfile .
 
@@ -42,7 +42,7 @@ test:
 push:
 	echo "$$REPO_PASSWORD" | docker login -u "$(REPO_USERNAME)" --password-stdin; \
 		docker push  $(REPO_NAMESPACE)/$(IMAGE_NAME):latest; \
-		docker push  $(REPO_NAMESPACE)/$(IMAGE_NAME):VCS-REF-$(VCS_REF); \
+		docker push  $(REPO_NAMESPACE)/$(IMAGE_NAME):$(VCS_REF); \
 		docker push  $(REPO_NAMESPACE)/$(IMAGE_NAME):$(VERSION);
 
 # Update README on registry
