@@ -45,18 +45,25 @@ make clean
 The below example shows how to use this container by mounting an ssh key into the `virtualbmc` user's directory.
 This will start the VirtualBMC Daemon (`vbmcd`) and attach to your host's network.  
 
-To run the container:
+To run the container:  
+
 ```shell
 docker run -d -v /home/someuser/.ssh/id_rsa:/virtualbmc/.ssh/id_rsa:ro --name virtualbmc --network host solidcommand/virtualbmc
 ```
 
-Once you have started the daemon you can add hosts on a remote box by using something like the following:
+Once you have started the daemon you can add hosts on a remote box by using something like the following:  
+
 ```shell
-docker exec -i -t virtualbmc vbmc add node01 --port 6232 --libvirt-uri 'qemu+ssh://root@my-libvirthost.example.com/system' --no-daemon
-docker exec -i -t virtualbmc vbmc add node02 --port 6234 --libvirt-uri 'qemu+ssh://root@my-libvirthost.example.com/system' --no-daemon
+docker exec -i -t virtualbmc vbmc add node01 --port 6230 --libvirt-uri 'qemu+ssh://root@my-libvirthost.example.com/system' --no-daemon
+docker exec -i -t virtualbmc vbmc add node02 --port 6231 --libvirt-uri 'qemu+ssh://root@my-libvirthost.example.com/system' --no-daemon
 docker exec -i -t virtualbmc vbmc start 'node01' --no-daemon
 docker exec -i -t virtualbmc vbmc start 'node02' --no-daemon
 docker exec -i -t virtualbmc vbmc list
+```
 
+On your host machine you should be able to run IPMI commands:  
+
+```shell
+ipmitool -I lanplus -U admin -P password -H 127.0.0.1 -p 6230 power status
 ```
 
