@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=alpine:latest
+ARG BASE_IMAGE=alpine:3.10
 FROM ${BASE_IMAGE}
 
 # Install deps.
@@ -11,6 +11,7 @@ RUN set -xe; \
         libzmq \
         openssh-client \
         openssl \
+        python3 \
         tzdata; \
     apk add --no-cache --virtual .build-deps \
         g++ \
@@ -19,8 +20,10 @@ RUN set -xe; \
         libvirt-dev \
         musl-dev \
         openssl-dev \
+        py3-pip \
+        python3-dev \
         zeromq-dev; \
-    pip install --no-cache-dir "virtualbmc==${VERSION}"; \
+    pip3 install --no-cache-dir "virtualbmc==${VERSION}"; \
     apk del .build-deps;
 
 # Create our group & user.

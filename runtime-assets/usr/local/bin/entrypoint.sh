@@ -7,7 +7,7 @@ if [ "$1" = "vbmcd" ]; then
 		rm -f /virtualbmc/.vbmc/master.pid
 	fi
 	echo "Starting VirtualBMC daemon"
-	/usr/local/bin/vbmcd --foreground &
+	/usr/bin/vbmcd --foreground &
 	trap 'echo "Stopping VirtualBMC daemon"; kill -SIGTERM "$!"' SIGINT SIGTERM
 	wait
 else
