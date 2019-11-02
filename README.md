@@ -1,4 +1,4 @@
-# virtualbmc
+# VirtualBMC
 
  [![Docker Automated build](https://img.shields.io/docker/automated/solidcommand/virtualbmc.svg)](https://hub.docker.com/r/solidcommand/virtualbmc/) [![Docker Pulls](https://img.shields.io/docker/pulls/solidcommand/virtualbmc.svg)](https://hub.docker.com/r/solidcommand/virtualbmc/) [![Docker Stars](https://img.shields.io/docker/stars/solidcommand/virtualbmc.svg)](https://hub.docker.com/r/solidcommand/virtualbmc/) [![](https://images.microbadger.com/badges/image/solidcommand/virtualbmc:1.6.0.svg)](https://microbadger.com/images/solidcommand/virtualbmc:1.6.0 "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/solidcommand/virtualbmc:1.6.0.svg)](https://microbadger.com/images/solidcommand/virtualbmc:1.6.0 "Get your own version badge on microbadger.com")
 
